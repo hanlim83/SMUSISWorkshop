@@ -1,5 +1,6 @@
-package ai.preferred.crawler.jobsCrawler;
+package ai.preferred.crawler;
 
+import ai.preferred.crawler.handlers.findJobListingsHandler;
 import ai.preferred.venom.Crawler;
 import ai.preferred.venom.request.Request;
 import ai.preferred.venom.request.VRequest;

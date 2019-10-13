@@ -1,9 +1,8 @@
-package ai.preferred.crawler.jobsCrawler;
+package ai.preferred.crawler.handlers;
 
 import ai.preferred.venom.Handler;
 import ai.preferred.venom.Session;
 import ai.preferred.venom.Worker;
-import ai.preferred.venom.job.JobAttribute;
 import ai.preferred.venom.job.Scheduler;
 import ai.preferred.venom.request.Request;
 import ai.preferred.venom.request.VRequest;
