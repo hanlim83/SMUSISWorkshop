@@ -17,8 +17,8 @@ public class findJobListingsHandler implements Handler {
         for (Element jobListing : elements){
             scheduler.add(new VRequest("https://startupjobs.asia"+jobListing.selectFirst("div > div > div > h5 > a").attr("href")),new jobListingHandler());
         }
-/*        Element element = vResponse.getJsoup().selectFirst("#suj-single-job-detail-container > div.suj-single-joblist.col.s12.l5 > div > div.row.boi8ttom-pagination > div > div > div > div > div > div > ul > li:last-child");
+        Element element = vResponse.getJsoup().selectFirst("#suj-single-job-detail-container > div.suj-single-joblist.col.s12.l5 > div > div.row.bottom-pagination > div > div > div > div > div > div > ul > li:last-child");
         if(!element.attr("class").equalsIgnoreCase("next disabled"))
-            scheduler.add(new VRequest("https://startupjobs.asia"+element.select("a").attr("href")),this);*/
+            scheduler.add(new VRequest("https://startupjobs.asia" + element.select("a").attr("href")), this);
     }
 }
