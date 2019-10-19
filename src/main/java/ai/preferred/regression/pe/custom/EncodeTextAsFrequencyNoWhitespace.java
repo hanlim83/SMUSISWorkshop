@@ -42,7 +42,7 @@ public class EncodeTextAsFrequencyNoWhitespace extends ProcessingElement {
     private int column;
 
     @Option(name = "-s", aliases = {"--separator"}, usage = "specifies regular expression for splitting text into words")
-    private String separator = "\\W+";
+    private String separator = "\\s\\|\\s";
 
     @Option(name = "-n", aliases = {"--number-of-words"}, usage = "the maximum number of words to keep")
     private int numberOfWords = 1000;
@@ -62,10 +62,21 @@ public class EncodeTextAsFrequencyNoWhitespace extends ProcessingElement {
         return result;
     }
 
+    private static String[] trimEmpty(String[] words) {
+        final ArrayList<String> result = new ArrayList<>();
+        for (final String word : words) {
+            if (!word.trim().isEmpty()) {
+                result.add(word);
+            }
+        }
+        return result.toArray(new String[0]);
+    }
+
     private static Multiset<String> toBagOfWords(String text, String separator) {
         final Pattern tokenizer = Pattern.compile(separator);
         String[] words;
         words = tokenizer.split(text);
+        words = trimEmpty(words);
         words = toLowerCase(words);
         return ImmutableMultiset.copyOf(toLowerCase(words));
     }
