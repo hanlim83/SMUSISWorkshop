@@ -31,11 +31,16 @@ public class SalaryConversion extends ProcessingElement {
     @Override
     protected void process(CSVInputData data, CSVPrinter printer) throws Exception {
         if (data.hasHeader()) {
-            printer.printRecord(data.getHeader());
+            final ArrayList<String> header = data.getHeader();
+            header.remove(column);
+            header.add("lowerSalary");
+            header.add("higherSalary");
+            header.add("meanSalary");
+            printer.printRecord(header);
         }
 
         for (final ArrayList<String> record : data) {
-            if (record.get(column).contains(IDR) || record.get(column).contains(USD)) {
+            if (!record.get(column).contains("Negotiated")) {
                 String currentData = record.get(column);
                 String[] dataArray = currentData.split("-");
                 dataArray[0] = dataArray[0].trim();
@@ -43,19 +48,35 @@ public class SalaryConversion extends ProcessingElement {
                 dataArray[1] = dataArray[1].trim();
                 double lowerSalaryDouble = Double.parseDouble(dataArray[0]);
                 double higherSalaryDouble = Double.parseDouble(dataArray[1]);
-                int lowerSalaryInteger = 0, higherSalaryInteger = 0;
-                if (record.get(column).contains(IDR)) {
-                    lowerSalaryInteger = (int) Math.round(lowerSalaryDouble * IDR_Rate);
-                    higherSalaryInteger = (int) Math.round(higherSalaryDouble * IDR_Rate);
-                } else if (record.get(column).contains(USD)) {
-                    lowerSalaryInteger = (int) Math.round(lowerSalaryDouble * USD_Rate);
-                    higherSalaryInteger = (int) Math.round(higherSalaryDouble * USD_Rate);
+                int lowerSalaryInteger = 0, higherSalaryInteger = 0, meanSalary = 0;
+                if (record.get(column).contains(IDR) || record.get(column).contains(USD)) {
+                    if (record.get(column).contains(IDR)) {
+                        lowerSalaryDouble = lowerSalaryDouble * IDR_Rate;
+                        lowerSalaryInteger = (int) Math.round(lowerSalaryDouble);
+                        higherSalaryDouble = higherSalaryDouble * IDR_Rate;
+                        higherSalaryInteger = (int) Math.round(higherSalaryDouble);
+                    } else if (record.get(column).contains(USD)) {
+                        lowerSalaryDouble = lowerSalaryDouble * USD_Rate;
+                        lowerSalaryInteger = (int) Math.round(lowerSalaryDouble * USD_Rate);
+                        higherSalaryDouble = higherSalaryDouble * USD_Rate;
+                        higherSalaryInteger = (int) Math.round(higherSalaryDouble * USD_Rate);
+                    }
+                    meanSalary = (int) Math.round(((higherSalaryDouble - lowerSalaryDouble) / 2) + lowerSalaryDouble);
+                    record.remove(column);
+                    record.add(Integer.toString(lowerSalaryInteger));
+                    record.add(Integer.toString(higherSalaryInteger));
+                    record.add(Integer.toString(meanSalary));
+                    printer.printRecord(record);
+                } else {
+                    meanSalary = (int) Math.round(((higherSalaryDouble - lowerSalaryDouble) / 2) + lowerSalaryDouble);
+                    lowerSalaryInteger = (int) Math.round(lowerSalaryDouble);
+                    higherSalaryInteger = (int) Math.round(higherSalaryDouble);
+                    record.remove(column);
+                    record.add(Integer.toString(lowerSalaryInteger));
+                    record.add(Integer.toString(higherSalaryInteger));
+                    record.add(Integer.toString(meanSalary));
+                    printer.printRecord(record);
                 }
-                record.set(column, lowerSalaryInteger + " - " + higherSalaryInteger);
-                printer.printRecord(record);
-            } else if (!record.get(column).contains("Negotiated")) {
-                record.set(column, record.get(column).substring(0, record.get(column).length() - 3));
-                printer.printRecord(record);
             }
         }
     }

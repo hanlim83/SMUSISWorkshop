@@ -38,17 +38,16 @@ public class AddX3 extends ProcessingElement {
     @Override
     protected void process(CSVInputData data, CSVPrinter printer) throws IOException {
         if (data.hasHeader()) {
-            ArrayList<String> header = data.getHeader();
-            // TODO: transform this header here!
-            // FOR EXAMPLE:
-            // header.add("NEW_COLUMN");
+            final ArrayList<String> header = data.getHeader();
+            header.add("(" + header.get(column) + ")^3");
             printer.printRecord(header);
         }
 
         for (final ArrayList<String> record : data) {
-            // TODO: transform each record here!
-            // FOR EXAMPLE:
-            // record.add("VALUE");
+            final String value = record.get(column);
+            final double x = Double.parseDouble(value);
+            final double x3 = x * x * x;
+            record.add(String.valueOf(x3));
             printer.printRecord(record);
         }
     }
