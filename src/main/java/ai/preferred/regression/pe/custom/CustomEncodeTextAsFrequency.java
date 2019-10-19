@@ -34,9 +34,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.regex.Pattern;
 
-public class EncodeTextAsFrequencyNoWhitespace extends ProcessingElement {
+public class CustomEncodeTextAsFrequency extends ProcessingElement {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(EncodeTextAsFrequencyNoWhitespace.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomEncodeTextAsFrequency.class);
 
     @Option(name = "-c", aliases = {"--column"}, usage = "the index of the input column", required = true)
     private int column;
@@ -71,7 +71,7 @@ public class EncodeTextAsFrequencyNoWhitespace extends ProcessingElement {
     }
 
     public static void main(String[] args) {
-        parseArgsAndRun(EncodeTextAsFrequencyNoWhitespace.class, args);
+        parseArgsAndRun(CustomEncodeTextAsFrequency.class, args);
     }
 
     private Vocabulary buildVocabulary(CSVInputData reader, int numberOfWords) {

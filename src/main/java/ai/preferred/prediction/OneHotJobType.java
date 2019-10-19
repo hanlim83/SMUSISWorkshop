@@ -4,16 +4,15 @@ import ai.preferred.regression.PlotLinearRegression;
 import ai.preferred.regression.PrintRegression;
 import ai.preferred.regression.Shell;
 import ai.preferred.regression.TrainLinearRegression;
-import ai.preferred.regression.pe.EncodeTextAsFrequency;
 import ai.preferred.regression.pe.ProjectColumns;
 import ai.preferred.regression.pe.RemoveColumn;
 import ai.preferred.regression.pe.SwapColumns;
-import ai.preferred.regression.pe.custom.EncodeTextAsFrequencyNoWhitespace;
+import ai.preferred.regression.pe.custom.CustomEncodeTextAsFrequency;
 
-public class FrequencyJobType {
+public class OneHotJobType {
     public static void main(String[] args) {
         Shell.reset();
-        Shell.help(EncodeTextAsFrequencyNoWhitespace.class);
+        Shell.help(CustomEncodeTextAsFrequency.class);
 
         //Moving salary to first col
         Shell.run(SwapColumns.class,"-i data_salary.csv -o updatedDataV1.csv -x 0 -y 8");
@@ -30,7 +29,7 @@ public class FrequencyJobType {
 
 
         //Splitting | as well as " ";
-        Shell.run(EncodeTextAsFrequencyNoWhitespace.class,"-i updatedDataV9.csv -o updatedDataV10.csv -c 1");
+        Shell.run(CustomEncodeTextAsFrequency.class, "-i updatedDataV9.csv -o updatedDataV10.csv -c 1");
 
         //Salary against various job type
         Shell.run(ProjectColumns.class,"-i updatedDataV10.csv -o salary_contract.csv -c meanSalary WORD:contract ");
