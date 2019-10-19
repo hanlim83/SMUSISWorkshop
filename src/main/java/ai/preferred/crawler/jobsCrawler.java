@@ -17,6 +17,6 @@ public class jobsCrawler {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+    }
     }
 }

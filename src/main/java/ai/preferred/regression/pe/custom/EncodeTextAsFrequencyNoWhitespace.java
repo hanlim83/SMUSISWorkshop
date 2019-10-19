@@ -42,7 +42,7 @@ public class EncodeTextAsFrequencyNoWhitespace extends ProcessingElement {
     private int column;
 
     @Option(name = "-s", aliases = {"--separator"}, usage = "specifies regular expression for splitting text into words")
-    private String separator = "\\W+";
+    private String separator = " \\| ";
 
     @Option(name = "-n", aliases = {"--number-of-words"}, usage = "the maximum number of words to keep")
     private int numberOfWords = 1000;
