@@ -51,10 +51,12 @@ public class SalaryConversion extends ProcessingElement {
                     lowerSalaryInteger = (int) Math.round(lowerSalaryDouble * USD_Rate);
                     higherSalaryInteger = (int) Math.round(higherSalaryDouble * USD_Rate);
                 }
-                record.set(column, lowerSalaryInteger + " - " + higherSalaryInteger + " SGD");
+                record.set(column, lowerSalaryInteger + " - " + higherSalaryInteger);
                 printer.printRecord(record);
-            } else if (!record.get(column).contains("Negotiated"))
+            } else if (!record.get(column).contains("Negotiated")) {
+                record.set(column, record.get(column).substring(0, record.get(column).length() - 3));
                 printer.printRecord(record);
+            }
         }
     }
 }
