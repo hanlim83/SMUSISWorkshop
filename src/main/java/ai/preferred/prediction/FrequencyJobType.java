@@ -10,11 +10,10 @@ import ai.preferred.regression.pe.custom.EncodeTextAsFrequencyNoWhitespace;
 public class FrequencyJobType {
     public static void main(String[] args) {
         Shell.reset();
-
         Shell.help(EncodeTextAsFrequencyNoWhitespace.class);
 
         //Moving salary to first col
-        Shell.run(SwapColumns.class,"-i data.csv -o updatedDataV1.csv -x 0 -y 3");
+        Shell.run(SwapColumns.class,"-i data_salary.csv -o updatedDataV1.csv -x 0 -y 3");
         //Moving Type to 2nd col
         Shell.run(SwapColumns.class,"-i updatedDataV1.csv -o updatedDataV2.csv -x 1 -y 5");
         //Removing remaining columns
