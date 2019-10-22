@@ -9,7 +9,7 @@ import ai.preferred.regression.pe.RemoveColumn;
 import ai.preferred.regression.pe.SwapColumns;
 import ai.preferred.regression.pe.custom.CustomEncodeTextAsFrequency;
 
-public class OneHotJobType {
+public class Salary_JobType {
     public static void main(String[] args) {
         Shell.reset();
         Shell.help(CustomEncodeTextAsFrequency.class);
