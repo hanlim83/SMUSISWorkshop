@@ -1,9 +1,6 @@
 package ai.preferred.prediction;
 
-import ai.preferred.regression.EvaluateRegression;
-import ai.preferred.regression.PrintRegression;
-import ai.preferred.regression.Shell;
-import ai.preferred.regression.TrainLinearRegression;
+import ai.preferred.regression.*;
 import ai.preferred.regression.pe.*;
 
 public class OneHotJobCountry {
@@ -25,10 +22,10 @@ public class OneHotJobCountry {
         System.out.println(" ==== For Overall Countries ==== ");
         Shell.run(EvaluateRegression.class, "-s data_countries_oneHot_training.csv -m jobCountries.model -i data_countries_oneHot_testing.csv");
         //Spilt into individual Countries
-        Shell.run(SelectEquals.class, "-i data_countries_oneHot_Shuffled.csv -o data_Singapore.csv -c 4 -e 1");
-        Shell.run(SelectEquals.class, "-i data_countries_oneHot_Shuffled.csv -o data_Philippines.csv -c 3 -e 1");
-        Shell.run(SelectEquals.class, "-i data_countries_oneHot_Shuffled.csv -o data_Malaysia.csv -c 2 -e 1");
-        Shell.run(SelectEquals.class, "-i data_countries_oneHot_Shuffled.csv -o data_Indonesia.csv -c 1 -e 1");
+        Shell.run(ProjectColumns.class, "-i data_countries_oneHot_Shuffled.csv -o data_Singapore.csv -c meanSalary COUNTRY:Singapore");
+        Shell.run(ProjectColumns.class, "-i data_countries_oneHot_Shuffled.csv -o data_Philippines.csv -c meanSalary COUNTRY:Philippines");
+        Shell.run(ProjectColumns.class, "-i data_countries_oneHot_Shuffled.csv -o data_Malaysia.csv -c  meanSalary COUNTRY:Malaysia");
+        Shell.run(ProjectColumns.class, "-i data_countries_oneHot_Shuffled.csv -o data_Indonesia.csv -c meanSalary COUNTRY:Indonesia");
         //Splitting into Training and testing data sets
         Shell.run(Partition.class, "-i data_Singapore.csv -o data_Singapore_training.csv");
         Shell.run(Partition.class, "-i data_Singapore.csv -o data_Singapore_testing.csv -e");
@@ -45,27 +42,27 @@ public class OneHotJobCountry {
         System.out.println("[FULL-SET]");
         Shell.run(TrainLinearRegression.class, "-i data_Singapore.csv -m jobCountriesSingapore.model");
         Shell.run(PrintRegression.class, "-i data_Singapore.csv -m jobCountriesSingapore.model");
-//        Shell.run(PlotLinearRegression.class,"-i data_Singapore.csv -m jobCountriesSingapore.model -n Singapore");
+        Shell.run(PlotLinearRegression.class, "-i data_Singapore.csv -m jobCountriesSingapore.model -n Singapore");
         System.out.println(" ==== For Philippines ==== ");
         Shell.run(TrainLinearRegression.class, "-i data_Philippines_training.csv -m jobCountriesPhilippines.model");
         Shell.run(EvaluateRegression.class, "-s data_Philippines_training.csv -m jobCountriesPhilippines.model -i data_Philippines_testing.csv");
         System.out.println("[FULL-SET]");
         Shell.run(TrainLinearRegression.class, "-i data_Philippines.csv -m jobCountriesPhilippines.model");
         Shell.run(PrintRegression.class, "-i data_Philippines.csv -m jobCountriesPhilippines.model");
-//        Shell.run(PlotLinearRegression.class,"-i data_Philippines.csv -m jobCountriesPhilippines.model -n Philippines");
+        Shell.run(PlotLinearRegression.class, "-i data_Philippines.csv -m jobCountriesPhilippines.model -n Philippines");
         System.out.println(" ==== For Malaysia ==== ");
         Shell.run(TrainLinearRegression.class, "-i data_Malaysia_training.csv -m jobCountriesMalaysia.model");
         Shell.run(EvaluateRegression.class, "-s data_Malaysia_training.csv -m jobCountriesMalaysia.model -i data_Malaysia_testing.csv");
         System.out.println("[FULL-SET]");
         Shell.run(TrainLinearRegression.class, "-i data_Malaysia.csv -m jobCountriesMalaysia.model");
         Shell.run(PrintRegression.class, "-i data_Malaysia.csv -m jobCountriesMalaysia.model");
-//        Shell.run(PlotLinearRegression.class,"-i data_Malaysia.csv -m jobCountriesMalaysia.model -n Malaysia");
+        Shell.run(PlotLinearRegression.class, "-i data_Malaysia.csv -m jobCountriesMalaysia.model -n Malaysia");
         System.out.println(" ==== For Indonesia ==== ");
         Shell.run(TrainLinearRegression.class, "-i data_Indonesia_training.csv -m jobCountriesIndonesia.model");
         Shell.run(EvaluateRegression.class, "-s data_Indonesia_training.csv -m jobCountriesIndonesia.model -i data_Indonesia_testing.csv");
         System.out.println("[FULL-SET]");
         Shell.run(TrainLinearRegression.class, "-i data_Indonesia.csv -m jobCountriesIndonesia.model");
         Shell.run(PrintRegression.class, "-i data_Indonesia.csv -m jobCountriesIndonesia.model");
-//        Shell.run(PlotLinearRegression.class,"-i data_Indonesia.csv -m jobCountriesIndonesia.model -n Indonesia");
+        Shell.run(PlotLinearRegression.class, "-i data_Indonesia.csv -m jobCountriesIndonesia.model -n Indonesia");
     }
 }
