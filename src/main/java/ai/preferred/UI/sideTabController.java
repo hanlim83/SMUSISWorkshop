@@ -1,9 +1,17 @@
 package ai.preferred.UI;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class sideTabController {
 
@@ -24,6 +32,8 @@ public class sideTabController {
 
     @FXML
     private JFXButton ExitButton;
+
+    private Scene myScene;
 
     @FXML
     void goToJobIndustry(ActionEvent event) {
@@ -46,13 +56,19 @@ public class sideTabController {
     }
 
     @FXML
-    void goToWebCrawler(ActionEvent event) {
-
+    void goToWebCrawler(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/webCrawler.fxml"));
+        myScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) (myScene).getWindow();
+        Parent nextView = loader.load();
+        stage.setScene(new Scene(nextView));
+        stage.show();
     }
 
     @FXML
     void onClickExitButton(ActionEvent event) {
-
+        Platform.exit();
     }
 
     @FXML
@@ -76,8 +92,14 @@ public class sideTabController {
     }
 
     @FXML
-    void onClickWebCrawler(MouseEvent event) {
-
+    void onClickWebCrawler(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/webCrawler.fxml"));
+        myScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) (myScene).getWindow();
+        Parent nextView = loader.load();
+        stage.setScene(new Scene(nextView));
+        stage.show();
     }
 
     @FXML

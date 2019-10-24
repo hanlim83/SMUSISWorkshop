@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ai.preferred.UI.webCrawlerController">
+    <children>
+      <JFXTextArea editable="false" layoutX="81.0" layoutY="180.0" prefHeight="308.0" prefWidth="737.0" text="1. The Crawler goes to the first page of all job listings&#10;2. The crawler detects for job listings by CSS selectors where it creates a new crawling request for each job listing to extract the listing details again via CSS selectors&#10;3. After findling all job listings, the crawler checks the pagation to see if there are any addtional pages of job listings to crawl.&#10;4. If there are, again create a crawl request to crawl that page for job listing&#10;&#10;Steps 2 - 4 are repeated untill there are no more page of job listings available to crawl" wrapText="true">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </JFXTextArea>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="900.0" style="-fx-background-color: pink;">
+            <children>
+                <JFXHamburger fx:id="hamburger" layoutX="14.0" layoutY="22.0" />
+                <Text layoutX="245.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Worth Prediction" wrappingWidth="411.13671875">
+                    <font>
+                        <Font size="40.0" />
+                    </font>
+                </Text>
+                <Line endX="900.0" endY="65.0" startY="65.0" strokeWidth="1.8" />
+            </children>
+        </AnchorPane>
+      <Text layoutX="319.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How our crawler works:">
+         <font>
+            <Font name="Calibri" size="27.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="callButton" buttonType="RAISED" layoutX="360.0" layoutY="499.0" onAction="#startCrawler" text="START CRAWLER">
+         <font>
+            <Font name="Calibri" size="22.0" />
+         </font>
+      </JFXButton>
+      <JFXSpinner fx:id="runningSpinner" layoutX="328.0" layoutY="203.0" prefHeight="195.0" prefWidth="245.0" />
+        <JFXDrawer fx:id="drawer" layoutY="66.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="219.0" />
+    </children>
+</AnchorPane>
