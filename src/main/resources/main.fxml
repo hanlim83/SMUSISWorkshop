@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0"
+            xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ai.preferred.UI.mainController">
+    <children>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                    prefHeight="65.0" prefWidth="900.0" style="-fx-background-color: pink;">
+            <children>
+                <JFXHamburger fx:id="hamburger" layoutX="14.0" layoutY="22.0"/>
+                <Text layoutX="245.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Worth Prediction"
+                      wrappingWidth="411.13671875">
+                    <font>
+                        <Font size="40.0"/>
+                    </font>
+                </Text>
+                <Line endX="900.0" endY="65.0" startY="65.0" strokeWidth="1.8"/>
+            </children>
+        </AnchorPane>
+        <JFXDrawer fx:id="drawer" layoutY="66.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                   minWidth="-Infinity" prefHeight="535.0" prefWidth="219.0"/>
+    </children>
+</AnchorPane>

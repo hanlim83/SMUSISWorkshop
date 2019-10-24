@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="535.0" prefWidth="219.0" xmlns="http://javafx.com/javafx/8.0.171"
+      fx:controller="ai.preferred.UI.sideTabController">
+    <children>
+        <JFXButton fx:id="webCrawlerButton" alignment="BASELINE_LEFT" onAction="#goToWebCrawler"
+                   onMouseClicked="#onClickWebCrawler" onMouseEntered="#onHover" onMouseExited="#onHoverExit"
+                   prefHeight="66.875" prefWidth="227.0" text="Web Crawler"/>
+        <JFXButton fx:id="locationButton" alignment="BASELINE_LEFT" onAction="#goToJobLocation"
+                   onMouseClicked="#onClickJobLocation" onMouseEntered="#onHover1" onMouseExited="#onHoverExit1"
+                   prefHeight="66.875" prefWidth="227.0" text="Analysis based on Job Location"/>
+        <JFXButton fx:id="typeButton" alignment="BASELINE_LEFT" onAction="#goToJobType" onMouseClicked="#onClickJobType"
+                   onMouseEntered="#onHover2" onMouseExited="#onHoverExit2" prefHeight="66.875" prefWidth="227.0"
+                   text="Analysis based on Job Type"/>
+        <JFXButton fx:id="industryButton" alignment="BASELINE_LEFT" onAction="#goToJobIndustry"
+                   onMouseClicked="#onClickJobIndustry" onMouseEntered="#onHover3" onMouseExited="#onHoverExit3"
+                   prefHeight="66.875" prefWidth="219.0" text="Analysis based on Industry"/>
+        <JFXButton fx:id="skillsButton" alignment="BASELINE_LEFT" onAction="#goToJobSkills"
+                   onMouseClicked="#onClickJobSkills" onMouseEntered="#onHover4" onMouseExited="#onHoverExit4"
+                   prefHeight="66.875" prefWidth="227.0" text="Analysis based on Skills" wrapText="true"/>
+        <JFXButton fx:id="ExitButton" alignment="BASELINE_LEFT" onAction="#onClickExitButton" onMouseEntered="#onHover5"
+                   onMouseExited="#onHoverExit5" prefHeight="66.875" prefWidth="227.0" text="Exit"/>
+    </children>
+</VBox>

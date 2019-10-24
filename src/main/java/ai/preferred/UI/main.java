@@ -15,12 +15,12 @@ public class main extends Application {
     public void start(Stage primaryStage) throws Exception {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("main.fxml"));
+            loader.setLocation(getClass().getResource("/main.fxml"));
             Parent root = loader.load();
-            Scene scene = new Scene(root, 1056, 600);
+            Scene scene = new Scene(root, 887, 587);
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("SMUSISWorkshop");
+            primaryStage.setTitle("SMUSISWorkshop - Your Worth Prediction");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
