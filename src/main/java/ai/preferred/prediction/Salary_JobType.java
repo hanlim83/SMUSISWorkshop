@@ -52,13 +52,7 @@ public class Salary_JobType {
 //        Shell.run(TrainLinearRegression.class, "-i trainingFullTime.csv -m temp/salary_fulltime_model.model -r 10");
         Shell.run(PrintRegression.class,"-i trainingFullTime.csv -m temp/salary_fulltime_model.model");
         Shell.run(PlotLinearRegression.class,"-i trainingFullTime.csv -m temp/salary_fulltime_model.model");
-
-
-//        Shell.run(PrintRegression.class,"-i trainingJobType.csv -m temp/trainingJobType_model.model");
-
-//        Shell.run(TrainLinearRegression.class,"-i testingJobType.csv -m temp/testingJobType_model.model");
-//        Shell.run(PrintRegression.class,"-i testingJobType.csv -m temp/testingJobType_model.model");
-
+        
         //Salary against various job type
 //        Shell.run(ProjectColumns.class,"-i trainingJobType.csv -o salary_contract.csv -c meanSalary WORD:contract ");
 //        Shell.run(ProjectColumns.class,"-i trainingJobType.csv -o salary_freelance.csv -c meanSalary WORD:freelance ");
