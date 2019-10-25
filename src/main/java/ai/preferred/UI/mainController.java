@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class mainController implements Initializable {
 
-    public static AnchorPane rootP;
+    private static AnchorPane rootP;
     @FXML
     private AnchorPane anchorPane;
     @FXML

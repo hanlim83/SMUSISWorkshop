@@ -5,8 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.commons.io.FileUtils;
 
-public class main extends Application {
+import java.io.File;
+import java.io.IOException;
+
+public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
@@ -25,5 +29,10 @@ public class main extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void stop() throws IOException {
+        FileUtils.cleanDirectory(new File("model"));
     }
 }

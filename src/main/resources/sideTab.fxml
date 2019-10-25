@@ -11,7 +11,7 @@
                    prefHeight="66.875" prefWidth="227.0" text="Web Crawler"/>
         <JFXButton fx:id="locationButton" alignment="BASELINE_LEFT" onAction="#goToJobLocation"
                    onMouseClicked="#onClickJobLocation" onMouseEntered="#onHover1" onMouseExited="#onHoverExit1"
-                   prefHeight="66.875" prefWidth="227.0" text="Analysis based on Job Location"/>
+                   prefHeight="66.875" prefWidth="227.0" text="Analysis based on Job Location" wrapText="true"/>
         <JFXButton fx:id="typeButton" alignment="BASELINE_LEFT" onAction="#goToJobType" onMouseClicked="#onClickJobType"
                    onMouseEntered="#onHover2" onMouseExited="#onHoverExit2" prefHeight="66.875" prefWidth="227.0"
                    text="Analysis based on Job Type"/>
@@ -21,7 +21,10 @@
         <JFXButton fx:id="skillsButton" alignment="BASELINE_LEFT" onAction="#goToJobSkills"
                    onMouseClicked="#onClickJobSkills" onMouseEntered="#onHover4" onMouseExited="#onHoverExit4"
                    prefHeight="66.875" prefWidth="227.0" text="Analysis based on Skills" wrapText="true"/>
-        <JFXButton fx:id="ExitButton" alignment="BASELINE_LEFT" onAction="#onClickExitButton" onMouseEntered="#onHover5"
-                   onMouseExited="#onHoverExit5" prefHeight="66.875" prefWidth="227.0" text="Exit"/>
+        <JFXButton fx:id="locationFullTimeButton" alignment="BASELINE_LEFT" onAction="#onClickLocationFullTimeButton"
+                   onMouseEntered="#onHover5" onMouseExited="#onHoverExit5" prefHeight="66.875" prefWidth="227.0"
+                   text="Analysis based on Job Location (Full-Time)" wrapText="true"/>
+        <JFXButton fx:id="ExitButton" alignment="BASELINE_LEFT" onAction="#onClickExitButton" onMouseEntered="#onHover6"
+                   onMouseExited="#onHoverExit6" prefHeight="66.875" prefWidth="227.0" text="Exit"/>
     </children>
 </VBox>

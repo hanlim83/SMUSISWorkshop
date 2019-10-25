@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXDrawer?>
-<?import com.jfoenix.controls.JFXHamburger?>
-<?import com.jfoenix.controls.JFXSpinner?>
-<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
+<?import javafx.scene.text.*?>
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ai.preferred.UI.webCrawlerController">
     <children>
-      <JFXTextArea editable="false" layoutX="81.0" layoutY="180.0" prefHeight="308.0" prefWidth="737.0" text="1. The Crawler goes to the first page of all job listings&#10;2. The crawler detects for job listings by CSS selectors where it creates a new crawling request for each job listing to extract the listing details again via CSS selectors&#10;3. After findling all job listings, the crawler checks the pagation to see if there are any addtional pages of job listings to crawl.&#10;4. If there are, again create a crawl request to crawl that page for job listing&#10;&#10;Steps 2 - 4 are repeated untill there are no more page of job listings available to crawl" wrapText="true">
+        <JFXTextArea editable="false" layoutX="81.0" layoutY="180.0" prefHeight="308.0" prefWidth="737.0"
+                     text="1. The Crawler goes to the first page of all job listings&#10;2. The crawler detects for job listings by CSS selectors where it creates a new crawling request for each job listing to extract the listing details again via CSS selectors&#10;3. After finding all job listings, the crawler checks the pagination to see if there are any additional pages of job listings to crawl.&#10;4. If there are, again create a crawl request to crawl that page for job listing&#10;&#10;Steps 2 - 4 are repeated until there are no more page of job listings available to crawl"
+                     wrapText="true">
          <font>
             <Font name="Calibri" size="20.0" />
          </font>

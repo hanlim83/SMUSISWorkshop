@@ -31,28 +31,56 @@ public class sideTabController {
     private JFXButton skillsButton;
 
     @FXML
+    private JFXButton locationFullTimeButton;
+
+
+    @FXML
     private JFXButton ExitButton;
 
     private Scene myScene;
 
     @FXML
-    void goToJobIndustry(ActionEvent event) {
-
+    void goToJobIndustry(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/jobIndustry.fxml"));
+        myScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) (myScene).getWindow();
+        Parent nextView = loader.load();
+        stage.setScene(new Scene(nextView));
+        stage.show();
     }
 
     @FXML
-    void goToJobLocation(ActionEvent event) {
-
+    void goToJobLocation(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/jobLocation.fxml"));
+        myScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) (myScene).getWindow();
+        Parent nextView = loader.load();
+        stage.setScene(new Scene(nextView));
+        stage.show();
     }
 
     @FXML
-    void goToJobSkills(ActionEvent event) {
-
+    void goToJobSkills(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/jobSkills.fxml"));
+        myScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) (myScene).getWindow();
+        Parent nextView = loader.load();
+        stage.setScene(new Scene(nextView));
+        stage.show();
     }
 
     @FXML
-    void goToJobType(ActionEvent event) {
-
+    void goToJobType(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/jobType.fxml"));
+        myScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) (myScene).getWindow();
+        Parent nextView = loader.load();
+        stage.setScene(new Scene(nextView));
+        stage.show();
     }
 
     @FXML
@@ -72,29 +100,64 @@ public class sideTabController {
     }
 
     @FXML
-    void onClickJobIndustry(MouseEvent event) {
-
+    void onClickJobIndustry(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/jobIndustry.fxml"));
+        myScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) (myScene).getWindow();
+        Parent nextView = loader.load();
+        stage.setScene(new Scene(nextView));
+        stage.show();
     }
 
     @FXML
-    void onClickJobLocation(MouseEvent event) {
-
+    void onClickJobLocation(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/jobLocation.fxml"));
+        myScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) (myScene).getWindow();
+        Parent nextView = loader.load();
+        stage.setScene(new Scene(nextView));
+        stage.show();
     }
 
     @FXML
-    void onClickJobSkills(MouseEvent event) {
-
+    void onClickJobSkills(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/jobSkills.fxml"));
+        myScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) (myScene).getWindow();
+        Parent nextView = loader.load();
+        stage.setScene(new Scene(nextView));
+        stage.show();
     }
 
     @FXML
-    void onClickJobType(MouseEvent event) {
-
+    void onClickJobType(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/jobType.fxml"));
+        myScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) (myScene).getWindow();
+        Parent nextView = loader.load();
+        stage.setScene(new Scene(nextView));
+        stage.show();
     }
 
     @FXML
     void onClickWebCrawler(MouseEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/webCrawler.fxml"));
+        myScene = ((Node) event.getSource()).getScene();
+        Stage stage = (Stage) (myScene).getWindow();
+        Parent nextView = loader.load();
+        stage.setScene(new Scene(nextView));
+        stage.show();
+    }
+
+    @FXML
+    void onClickLocationFullTimeButton(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/jobLocationFullTime.fxml"));
         myScene = ((Node) event.getSource()).getScene();
         Stage stage = (Stage) (myScene).getWindow();
         Parent nextView = loader.load();
@@ -133,6 +196,11 @@ public class sideTabController {
     }
 
     @FXML
+    void onHover6(MouseEvent event) {
+        locationFullTimeButton.setButtonType(JFXButton.ButtonType.RAISED);
+    }
+
+    @FXML
     void onHoverExit(MouseEvent event) {
         webCrawlerButton.setButtonType(JFXButton.ButtonType.FLAT);
     }
@@ -160,6 +228,11 @@ public class sideTabController {
     @FXML
     void onHoverExit5(MouseEvent event) {
         ExitButton.setButtonType(JFXButton.ButtonType.FLAT);
+    }
+
+    @FXML
+    void onHoverExit6(MouseEvent event) {
+        locationFullTimeButton.setButtonType(JFXButton.ButtonType.FLAT);
     }
 
 }
