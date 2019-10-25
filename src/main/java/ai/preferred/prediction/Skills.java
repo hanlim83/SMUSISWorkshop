@@ -23,6 +23,7 @@ public class Skills {
         Shell.run(ProjectColumns.class, "-i data_skills.csv -o data.css.csv -c meanSalary WORD:css");
         Shell.run(ProjectColumns.class, "-i data_skills.csv -o data.php.csv -c meanSalary WORD:php");
         Shell.run(ProjectColumns.class, "-i data_skills.csv -o data.excel.csv -c meanSalary WORD:excel");
+        Shell.run(ProjectColumns.class, "-i data_skills.csv -o data.sales.csv -c meanSalary WORD:sales");
 
         Shell.run(ProjectColumns.class, "-i data_skills_jobtype.csv -o data.manyskills_fulltime.csv -c meanSalary WORD:excel WORD:php WORD:css WORD:html WORD:python WORD:javascript WORD:java WORD:full-time");
 
@@ -50,5 +51,9 @@ public class Skills {
         Shell.run(TrainLinearRegression.class, "-i data.manyskills_fulltime.csv -m temp/salary.manyskills_fulltime_model.model");
         Shell.run(PrintRegression.class,"-i data.manyskills_fulltime.csv -m temp/salary.manyskills_fulltime_model.model");
         //Shell.run(PlotLinearRegression.class,"-i data.manyskills_fulltime.csv -m temp/salary.manyskills_fulltime_model.model");
+
+        Shell.run(TrainLinearRegression.class, "-i data.sales.csv -m temp/salary.sales_model.model");
+        Shell.run(PrintRegression.class,"-i data.sales.csv -m temp/salary.sales_model.model");
+        Shell.run(PlotLinearRegression.class,"-i data.sales.csv -m temp/salary.sales_model.model");
     }
 }
