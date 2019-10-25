@@ -1,10 +1,8 @@
 package ai.preferred.prediction;
 
-import ai.preferred.regression.PlotLinearRegression;
-import ai.preferred.regression.PrintRegression;
-import ai.preferred.regression.Shell;
-import ai.preferred.regression.TrainLinearRegression;
+import ai.preferred.regression.*;
 import ai.preferred.regression.pe.EncodeTextAsFrequency;
+import ai.preferred.regression.pe.Partition;
 import ai.preferred.regression.pe.ProjectColumns;
 import ai.preferred.regression.pe.custom.CustomEncodeTextAsFrequency;
 
@@ -51,6 +49,19 @@ public class Skills {
         Shell.run(TrainLinearRegression.class, "-i data.manyskills_fulltime.csv -m temp/salary.manyskills_fulltime_model.model");
         Shell.run(PrintRegression.class,"-i data.manyskills_fulltime.csv -m temp/salary.manyskills_fulltime_model.model");
         //Shell.run(PlotLinearRegression.class,"-i data.manyskills_fulltime.csv -m temp/salary.manyskills_fulltime_model.model");
+
+
+
+        Shell.run(Partition.class, "-i data.sales.csv -o data.sales_training.csv");
+        Shell.run(Partition.class, "-i data.sales.csv -o data.sales_testing.csv -e");
+
+        System.out.println(" ==== For sales ==== ");
+        Shell.run(TrainLinearRegression.class, "-i data.sales_training.csv -m salary.sales.model");
+        Shell.run(EvaluateRegression.class, "-s data.sales_training.csv -m salary.sales.model -i data.sales_testing.csv");
+        System.out.println("[FULL-SET]");
+        Shell.run(TrainLinearRegression.class, "-i data.sales.csv -m salary.sales.model");
+        Shell.run(PrintRegression.class, "-i data.sales.csv -m salary.sales.model");
+        Shell.run(PlotLinearRegression.class, "-i data.sales.csv -m salary.sales.model -n sales");
 
         Shell.run(TrainLinearRegression.class, "-i data.sales.csv -m temp/salary.sales_model.model");
         Shell.run(PrintRegression.class,"-i data.sales.csv -m temp/salary.sales_model.model");
