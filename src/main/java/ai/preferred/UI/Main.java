@@ -24,7 +24,7 @@ public class Main extends Application {
             Scene scene = new Scene(root, 887, 587);
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
-            primaryStage.setTitle("SMUSISWorkshop - Your Worth Prediction");
+            primaryStage.setTitle("SMUSISWorkshop - Predicting Your Worth");
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();

@@ -14,7 +14,7 @@
                     prefHeight="65.0" prefWidth="900.0" style="-fx-background-color: pink;">
             <children>
                 <JFXHamburger fx:id="hamburger" layoutX="14.0" layoutY="22.0"/>
-                <Text layoutX="245.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Worth Prediction"
+                <Text layoutX="245.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Predicting Your Worth"
                       wrappingWidth="411.13671875">
                     <font>
                         <Font size="40.0"/>
